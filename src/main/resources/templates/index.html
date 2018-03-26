@@ -5,6 +5,16 @@
     <title>测试thymeleaf</title>
 </head>
 <body>
+
 <h1 th:text="${name}"> hahah</h1>
+<hr style=" height:2px;border:none;border-top:2px dotted #185598;" />
+
+<div th:switch="${name}">
+    <p th:case="'老哥'">是老哥啊</p>
+    <p th:case="#{roles.guest}">游客</p>
+    <p th:case="#{roles.admin}">管理员</p>
+    <p th:case="*">其他</p>
+</div>
+
 </body>
 </html>

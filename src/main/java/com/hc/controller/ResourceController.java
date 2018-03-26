@@ -15,6 +15,14 @@ public class ResourceController {
     @Autowired
     private Resource resource;
 
+    @RequestMapping("errorAjaxPage")
+    @ResponseBody
+    public IMoocJSONResult errorAjaxPage(){
+        int a = 1/0;
+        return IMoocJSONResult.ok();
+    }
+
+
     /**
      * 资源文件属性配置
      * @return
@@ -29,7 +37,20 @@ public class ResourceController {
 
     @RequestMapping("/thymeleaf")
     public String thymeleaf(ModelMap map){
-        map.addAttribute("name","老哥");
+        map.addAttribute("name","guest");
+
         return "index";
     }
+
+    @RequestMapping("/globalExceprion")
+    public void globalExceprion(){
+        int a = 1/0;
+    }
+
+
+    @RequestMapping("getAjaxPage")
+    public String getAjaxPage(){
+        return "ajaxExceptionTest";
+    }
+
 }
