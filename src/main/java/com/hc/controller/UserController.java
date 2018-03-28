@@ -2,15 +2,20 @@ package com.hc.controller;
 
 import com.hc.model.IMoocJSONResult;
 import com.hc.model.User;
+import com.hc.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.nio.file.attribute.UserPrincipalLookupService;
 import java.util.Date;
 
 @RestController
 @RequestMapping("/user")
 public class UserController {
 
+    @Autowired
+    private UserService userService;
 
     @RequestMapping("/getUser")
     public User getUser(){
@@ -35,4 +40,5 @@ public class UserController {
         user.setPassword("1234567");
         return IMoocJSONResult.ok(user);
     }
+
 }
